@@ -17,6 +17,6 @@ class GeeksforGeeks
             </div>
         );
     }
-}
+}                                                                                                                                                                                                                                                                                                                                                                           
  
 export default GeeksforGeeks;

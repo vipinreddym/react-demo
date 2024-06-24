@@ -8,24 +8,25 @@ import {
     Route,
     Link
 } from "react-router-dom";
-
-
+import { SignUp } from "./components/signup";
 
 export default function App() {
     return (
         <div className="App">
-            
-                <nav>
-                    <Link to="/"> Home </Link> ||
-                    <Link to="/About"> About </Link> ||
-                </nav>
 
-                
-                <Routes>
-                    <Route exact path="/" element={<GeeksforGeeks />} />
-                    <Route path="/About" element={<About />} />
-                </Routes>
-            
+            <nav>
+                <Link to="/"> Home </Link> ||
+                <Link to="/About"> About </Link> ||
+                <Link to="/SignUp"> Signup </Link>
+            </nav>
+
+
+            <Routes>
+                <Route path="/" element={<GeeksforGeeks />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/SignUp" element={<SignUp />} />
+            </Routes>
+
         </div>
     );
 }
