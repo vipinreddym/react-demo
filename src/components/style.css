@@ -9,7 +9,7 @@ p, div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(6, 150, 30);
+    background-color:#f8f8f8;
   }
   
   .form-wrapper {

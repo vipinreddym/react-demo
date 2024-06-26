@@ -1,5 +1,7 @@
-import React from "react";
+import React from 'react';
 import './style.css';
+import axios from 'axios';
+
 
 
 interface SignUpProps {
@@ -16,9 +18,13 @@ interface SignUpState {
         password: string
     }
 }
-const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
+
+
+const Regex = RegExp("[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}");
 
 export class SignUp extends React.Component<SignUpProps, SignUpState> {
+
+
 
     handleChange = (event) => {
         event.preventDefault();
@@ -39,6 +45,7 @@ export class SignUp extends React.Component<SignUpProps, SignUpState> {
         }
         this.setState(Object.assign(this.state, { errors, [name]: value }));
         console.log(this.state.errors);
+        console.log(this.state);
     }
 
 
@@ -47,14 +54,33 @@ export class SignUp extends React.Component<SignUpProps, SignUpState> {
         event.preventDefault();
         let validity = true;
         Object.values(this.state.errors).forEach(
-          (val) => val.length > 0 && (validity = false)
+            (val) => val.length > 0 && (validity = false)
         );
-        if(validity == true){
-           console.log("Registering can be done");
-        }else{
-           console.log("You cannot be registered!!!")
+        if (validity == true) {
+            console.log("Registering can be done", this.state);
+            
+
+                axios.post(`https://dev.apphr.io/api/v1.0/users/login`, {
+                    type: '',
+                    email: this.state.email,
+                    password: this.state.password
+                })
+                    .then(res => {
+                        console.log("res", res)
+                        const persons = res.data;
+                        this.setState({ persons });
+                    })
+                    .then(response => {
+                        console.log(response)
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+
+        } else {
+            console.log("You cannot be registered!!!")
         }
-     }
+    }
 
     constructor(props: SignUpProps) {
         super(props);
@@ -103,6 +129,4 @@ export class SignUp extends React.Component<SignUpProps, SignUpState> {
             </div>
         );
     }
-
-
 }
