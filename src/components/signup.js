@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import axios from 'axios';
 
-
+import About from './about';
 
 interface SignUpProps {
     name?: any;
@@ -51,31 +51,34 @@ export class SignUp extends React.Component<SignUpProps, SignUpState> {
 
 
     handleSubmit = (event) => {
+        
         event.preventDefault();
         let validity = true;
         Object.values(this.state.errors).forEach(
             (val) => val.length > 0 && (validity = false)
         );
-        if (validity == true) {
+        if (validity === true) {
             console.log("Registering can be done", this.state);
-            
 
-                axios.post(`https://dev.apphr.io/api/v1.0/users/login`, {
-                    type: '',
-                    email: this.state.email,
-                    password: this.state.password
+
+            axios.post(`https://dev.apphr.io/api/v1.0/users/login`, {
+                type: '',
+                email: this.state.email,
+                password: this.state.password
+            })
+                .then(res => {
+                    console.log("res", res)
+                    const persons = res.data;
+                    this.setState({ user: true });
+                    console.log("this.state", this.state)
+
                 })
-                    .then(res => {
-                        console.log("res", res)
-                        const persons = res.data;
-                        this.setState({ persons });
-                    })
-                    .then(response => {
-                        console.log(response)
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(err => {
+                    console.log(err);
+                });
 
         } else {
             console.log("You cannot be registered!!!")
@@ -123,6 +126,7 @@ export class SignUp extends React.Component<SignUpProps, SignUpState> {
                         </div>
                         <div className='submit'>
                             <button>Register Me</button>
+
                         </div>
                     </form>
                 </div>
