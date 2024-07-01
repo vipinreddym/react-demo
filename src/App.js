@@ -9,6 +9,9 @@ import {
     Link
 } from "react-router-dom";
 import { SignUp } from "./components/signup";
+import PopupMenu from "./components/popup";
+import SimplePopup from "./components/simplePopup";
+
 
 export default function App() {
     return (
@@ -17,7 +20,10 @@ export default function App() {
             <nav>
                 <Link to="/"> Home </Link> ||
                 <Link to="/About"> About </Link> ||
-                <Link to="/SignUp"> Signup </Link>
+                <Link to="/SignUp"> Signup </Link> ||
+                <Link to="/popup"> popup </Link>||
+                <Link to="/SimplePopup"> simple popup </Link>
+                
             </nav>
 
 
@@ -25,6 +31,8 @@ export default function App() {
                 <Route path="/" element={<GeeksforGeeks />} />
                 <Route path="/About" element={<About />} />
                 <Route path="/SignUp" element={<SignUp />} />
+                <Route path="/popup" element={<PopupMenu />} />
+                <Route path="/SimplePopup" element={<SimplePopup />} />
             </Routes>
 
         </div>
