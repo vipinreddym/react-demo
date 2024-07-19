@@ -56,6 +56,8 @@ class popup extends Component {
       </div>
     );
   }
+
+  
 }
 render(<popup />, document.getElementById('root'));
 
