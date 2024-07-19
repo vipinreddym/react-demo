@@ -1,3 +1,23 @@
+h1, p {
+  font-family: Lato;
+}
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: roboto;
+  /* background: #3676b3; */
+}
+header{
+  text-align: center;
+  background: black;
+  color: white;
+  padding: 0.52em;
+  font-size: 20px;
+}
+
+
+
 p, div {
     font-family: Lato;
   }

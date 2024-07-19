@@ -1,0 +1,113 @@
+nav{
+    height: 100vh;
+    position: fixed;
+    top: 44px;
+    left: 0;
+    .sidebar-mainmenu, .menu-top{
+      height: 50%;
+      background: #16325c;
+      min-width: 50px;
+      .sidebar-mainmenu-item{
+        height: 100%;
+        span{
+          height: 48px;
+          color: #cacad3;
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          justify-content: center;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+      
+      .mainmenu-details{
+        display: none;
+        top: 0px;
+        left: 0px;
+        padding: 0;
+        position: absolute;
+        text-align: left;
+        width: 130px;
+        background-color: #16325c;
+        color: #fff;
+        z-index: 2000;
+        height: 50%;
+        font-size: 12px;
+        transition: display 2s;
+        .sidebar-submenu-item{
+          font-size: 12px;
+          color: #f0f0f6;
+          height: 48px;
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          text-align: left;
+          cursor: pointer;
+          text-decoration: none;
+          .menu-icon{
+            font-size: 16px;
+            color: #cacad3;
+            padding-right: 16px;
+            padding-left: 16px;
+          }
+          .submenu-details {
+            top: 0;
+            padding: 0;
+            position: absolute;
+            text-align: left;
+            width: 100px;
+            background-color: #2759a3;
+            color: #fff;
+            z-index: 2000;
+            height: 100%;
+            font-size: 12px;
+            transition: display 2s;
+            display:none;
+            left: 130px;
+            .sidebar-child-item {
+              @extend .sidebar-submenu-item;
+            }
+           
+          }
+          &:hover {
+            background-color: #3477cb;
+            .submenu-details {
+              display:block;
+            }
+            .sidebar-child-item{
+              justify-content: center;
+            }
+          }
+        }
+      }
+     
+    }
+    .menu-bottom{
+      height: 44%;
+     
+      .sidebar-mainmenu-item{
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .menu-bottom-details{
+        top:50%;
+        height: 44%;
+        display: none;
+        flex-direction: column-reverse;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+        .mainmenu-details {
+        display: block;
+      }
+      .menu-bottom-details{
+        display: flex;
+      }
+    }
+ 
+  }

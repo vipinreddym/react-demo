@@ -11,9 +11,17 @@ import {
 import { SignUp } from "./components/signup";
 import PopupMenu from "./components/popup";
 import SimplePopup from "./components/simplePopup";
+import { useState } from 'react';
+
 
 
 export default function App() {
+
+    
+  
+    
+
+
     return (
         <div className="App">
 
